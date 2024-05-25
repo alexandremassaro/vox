@@ -3,7 +3,7 @@ package dao;
 import model.Turno;
 import java.util.List;
 
-public interface TurnoDAO {
+public interface TurnoDao {
     void addTurno(Turno turno);
     Turno getTurno(int turnoId);
     List<Turno> getAllTurnos();

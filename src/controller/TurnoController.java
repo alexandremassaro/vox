@@ -1,33 +1,33 @@
 package controller;
 
 import model.Turno;
-import dao.TurnoDAO;
+import dao.TurnoDao;
 import java.util.List;
 
 public class TurnoController {
-    private TurnoDAO turnoDAO;
+    private TurnoDao turnoDao;
 
-    public TurnoController(TurnoDAO turnoDAO) {
-        this.turnoDAO = turnoDAO;
+    public TurnoController(TurnoDao turnoDAO) {
+        this.turnoDao = turnoDAO;
     }
 
     public void addTurno(Turno turno) {
-        turnoDAO.addTurno(turno);
+        turnoDao.addTurno(turno);
     }
 
     public Turno getTurno(int turnoId) {
-        return turnoDAO.getTurno(turnoId);
+        return turnoDao.getTurno(turnoId);
     }
 
     public List<Turno> getAllTurnos() {
-        return turnoDAO.getAllTurnos();
+        return turnoDao.getAllTurnos();
     }
 
     public void updateTurno(Turno turno) {
-        turnoDAO.updateTurno(turno);
+        turnoDao.updateTurno(turno);
     }
 
     public void deleteTurno(int turnoId) {
-        turnoDAO.deleteTurno(turnoId);
+        turnoDao.deleteTurno(turnoId);
     }
 }
