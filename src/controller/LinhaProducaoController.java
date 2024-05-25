@@ -1,33 +1,33 @@
 package controller;
 
 import model.LinhaProducao;
-import dao.LinhaProducaoDAO;
+import dao.LinhaProducaoDao;
 import java.util.List;
 
 public class LinhaProducaoController {
-    private LinhaProducaoDAO linhaProducaoDAO;
+    private LinhaProducaoDao linhaProducaoDao;
 
-    public LinhaProducaoController(LinhaProducaoDAO linhaProducaoDAO) {
-        this.linhaProducaoDAO = linhaProducaoDAO;
+    public LinhaProducaoController(LinhaProducaoDao linhaProducaoDao) {
+        this.linhaProducaoDao = linhaProducaoDao;
     }
 
     public void addLinhaProducao(LinhaProducao linhaProducao) {
-        linhaProducaoDAO.addLinhaProducao(linhaProducao);
+        linhaProducaoDao.addLinhaProducao(linhaProducao);
     }
 
     public LinhaProducao getLinhaProducao(int linhaId) {
-        return linhaProducaoDAO.getLinhaProducao(linhaId);
+        return linhaProducaoDao.getLinhaProducao(linhaId);
     }
 
     public List<LinhaProducao> getAllLinhasProducao() {
-        return linhaProducaoDAO.getAllLinhasProducao();
+        return linhaProducaoDao.getAllLinhasProducao();
     }
 
     public void updateLinhaProducao(LinhaProducao linhaProducao) {
-        linhaProducaoDAO.updateLinhaProducao(linhaProducao);
+        linhaProducaoDao.updateLinhaProducao(linhaProducao);
     }
 
     public void deleteLinhaProducao(int linhaId) {
-        linhaProducaoDAO.deleteLinhaProducao(linhaId);
+        linhaProducaoDao.deleteLinhaProducao(linhaId);
     }
 }

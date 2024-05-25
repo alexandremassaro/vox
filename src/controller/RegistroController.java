@@ -1,33 +1,33 @@
 package controller;
 
 import model.Registro;
-import dao.RegistroDAO;
+import dao.RegistroDao;
 import java.util.List;
 
 public class RegistroController {
-    private RegistroDAO registroDAO;
+    private RegistroDao registroDao;
 
-    public RegistroController(RegistroDAO registroDAO) {
-        this.registroDAO = registroDAO;
+    public RegistroController(RegistroDao registroDao) {
+        this.registroDao = registroDao;
     }
 
     public void addRegistro(Registro registro) {
-        registroDAO.addRegistro(registro);
+        registroDao.addRegistro(registro);
     }
 
     public Registro getRegistro(int registroId) {
-        return registroDAO.getRegistro(registroId);
+        return registroDao.getRegistro(registroId);
     }
 
     public List<Registro> getAllRegistros() {
-        return registroDAO.getAllRegistros();
+        return registroDao.getAllRegistros();
     }
 
     public void updateRegistro(Registro registro) {
-        registroDAO.updateRegistro(registro);
+        registroDao.updateRegistro(registro);
     }
 
     public void deleteRegistro(int registroId) {
-        registroDAO.deleteRegistro(registroId);
+        registroDao.deleteRegistro(registroId);
     }
 }
