@@ -1,5 +1,43 @@
 package dao;
 
-public class Dao {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 
+public abstract class Dao<T> {
+    protected Connection connection;
+
+    public Dao() {
+        this.connection = DatabaseConnection.getConnection();
+    }
+
+    public abstract void add(T entity) throws SQLException;
+
+    public abstract T get(int id) throws SQLException;
+
+    public abstract List<T> getAll() throws SQLException;
+
+    public abstract void update(T entity) throws SQLException;
+
+    public abstract void delete(int id) throws SQLException;
+
+    protected PreparedStatement prepareStatement(String sql, Object... parameters) throws SQLException {
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        for (int i = 0; i < parameters.length; i++) {
+            stmt.setObject(i + 1, parameters[i]);
+        }
+        return stmt;
+    }
+
+    protected T getSingleResult(ResultSet rs) throws SQLException {
+        // Método a ser implementado nas subclasses
+        return null;
+    }
+
+    protected List<T> getResultList(ResultSet rs) throws SQLException {
+        // Método a ser implementado nas subclasses
+        return null;
+    }
 }

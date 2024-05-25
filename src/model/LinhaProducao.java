@@ -15,4 +15,8 @@ public class LinhaProducao {
     }
 
     // Getters e Setters
+
+    public String getnome() {
+        return this.nome;
+    }
 }
