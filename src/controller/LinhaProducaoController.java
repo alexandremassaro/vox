@@ -2,6 +2,8 @@ package controller;
 
 import model.LinhaProducao;
 import dao.LinhaProducaoDao;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LinhaProducaoController {
@@ -12,22 +14,43 @@ public class LinhaProducaoController {
     }
 
     public void addLinhaProducao(LinhaProducao linhaProducao) {
-        linhaProducaoDao.addLinhaProducao(linhaProducao);
+        try {
+            linhaProducaoDao.add(linhaProducao);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public LinhaProducao getLinhaProducao(int linhaId) {
-        return linhaProducaoDao.getLinhaProducao(linhaId);
+    public String getLinhaProducao(int linhaId) {
+        try {
+            String linhaPesquisada = linhaProducaoDao.get(linhaId).toString();
+            return linhaPesquisada;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
     public List<LinhaProducao> getAllLinhasProducao() {
-        return linhaProducaoDao.getAllLinhasProducao();
+        List<LinhaProducao> listaProducao = new ArrayList<LinhaProducao>();
+        try {
+            listaProducao = linhaProducaoDao.getAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listaProducao;
     }
 
-    public void updateLinhaProducao(LinhaProducao linhaProducao) {
+    /*public void updateLinhaProducao(LinhaProducao linhaProducao) {
         linhaProducaoDao.updateLinhaProducao(linhaProducao);
-    }
+    }*/
 
     public void deleteLinhaProducao(int linhaId) {
-        linhaProducaoDao.deleteLinhaProducao(linhaId);
+       try{
+           linhaProducaoDao.delete(linhaId);
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
     }
 }

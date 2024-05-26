@@ -1,16 +1,17 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public abstract class Dao<T> {
-    protected Connection connection;
+    protected static Connection connection;
 
     public Dao() {
         this.connection = DatabaseConnection.getConnection();
+    }
+
+    protected static Statement createStatement() throws SQLException {
+        return connection.createStatement();
     }
 
     public abstract void add(T entity) throws SQLException;
@@ -23,7 +24,7 @@ public abstract class Dao<T> {
 
     public abstract void delete(int id) throws SQLException;
 
-    protected PreparedStatement prepareStatement(String sql, Object... parameters) throws SQLException {
+    protected static PreparedStatement prepareStatement(String sql, Object... parameters) throws SQLException {
         PreparedStatement stmt = connection.prepareStatement(sql);
         for (int i = 0; i < parameters.length; i++) {
             stmt.setObject(i + 1, parameters[i]);

@@ -19,7 +19,7 @@ public class LinhaProducao {
         return this.nome;
     }
 
-    public int getId() {
+    public int getLinhaId() {
         return this.linhaId;
     }
 }
