@@ -17,4 +17,15 @@ public class Turno {
     }
 
     // Getters e Setters
+    public int getTurnoId() {
+        return this.turnoId;
+    }
+
+    public int getLinhaId() {
+        return this.linhaId;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
 }
